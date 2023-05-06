@@ -1,5 +1,5 @@
 <template>
-    <a-carousel :after-change="onChange">
+    <a-carousel :after-change="onChange" dot-position="right">
         <div v-for="index in 4" :key="index">
             <TopArticleCard/>
         </div>
@@ -20,10 +20,7 @@ export default {
 <style scoped>
 /* For demo */
 .ant-carousel >>> .slick-slide {
-    text-align: center;
-    height: 280px;
-    line-height: 280px;
-    background: #364d79;
+    height: 320px;
     overflow: hidden;
 }
 

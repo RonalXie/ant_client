@@ -13,15 +13,20 @@
                   </a-menu-item>
               </a-menu>
           </a-col>
-          <a-col :span="4"></a-col>
+          <a-col :span="4">
+              <HeaderRight/>
+          </a-col>
       </a-row>
 
   </div>
 </template>
 
 <script>
+import HeaderRight from "@/navbar/HeaderRight.vue";
+
 export default {
     name: "DefaultHeader",
+    components: {HeaderRight},
     data(){
         return{
             current: ['home'],

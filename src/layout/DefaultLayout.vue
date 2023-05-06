@@ -1,10 +1,10 @@
 <template>
   <div>
       <a-layout>
-          <a-layout-header :style="{padding:0,background:'#fff', position: 'fixed', zIndex: 1,width:'100%'}"><DefaultHeader/></a-layout-header>
+          <a-layout-header :style="{padding:'0 16px',background:'#fff', position: 'fixed', zIndex: 1,width:'100%'}"><DefaultHeader/></a-layout-header>
           <a-layout-content :style="{background:'#fff',padding:'88px'}">
               <a-row type="flex" justify="center">
-                  <a-col :span="16">
+                  <a-col :span="20">
                       <router-view/>
                   </a-col>
               </a-row>
