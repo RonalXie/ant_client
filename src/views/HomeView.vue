@@ -6,7 +6,7 @@
       </div>
 
       <a-row :gutter="16">
-          <a-col :span="8" v-for="index in 16" :key="index">
+          <a-col :xs="24" :sm="12" :md="12" :lg="8" :xl="6" v-for="index in 16" :key="index">
               <ArticleCard/>
           </a-col>
       </a-row>

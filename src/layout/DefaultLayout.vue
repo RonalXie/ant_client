@@ -4,7 +4,7 @@
           <a-layout-header :style="{padding:0,background:'#fff', position: 'fixed', zIndex: 1,width:'100%'}"><DefaultHeader/></a-layout-header>
           <a-layout-content :style="{background:'#fff',padding:'88px'}">
               <a-row type="flex" justify="center">
-                  <a-col :span="16">
+                  <a-col :xs="24" :sm="20" :md="18" :lg="18" :xl="16">
                       <router-view/>
                   </a-col>
               </a-row>
