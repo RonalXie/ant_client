@@ -35,3 +35,9 @@ hr {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
     border:none;
 }
+.fix_bottom{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+}

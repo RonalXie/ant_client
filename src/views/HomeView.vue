@@ -12,7 +12,7 @@
       </div>
       <div class="top_content">
           <a-card hoverable class="card_shadow">
-              <a-button shape="round" type="primary" size="large" ghost v-for="i in 10" :key="i" style="margin: 0 5px">
+              <a-button shape="round" type="primary" ghost v-for="i in 10" :key="i" style="margin: 0 5px">
                   Primary
               </a-button>
           </a-card>
