@@ -1,17 +1,34 @@
 <template>
   <div id="app">
-      <DefaultLayout/>
+    <component :is="layout">
+    </component>
   </div>
 </template>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /*font-family:  sans-serif;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /*width:100%;*/
+  /*height:100%;*/
+  /*position:fixed;*/
+  /*background-size:100% 100%;*/
 }
 
 </style>
-<script setup>
-import DefaultLayout from "@/layout/DefaultLayout.vue";
+<script>
+import FrontLayout from "@/layout/FrontLayout.vue";
+
+export default {
+  components:{
+    FrontLayout
+  },
+  computed: {
+    layout() {
+      return "layout-" + ( this.$route.meta.layout || "front" ).toLowerCase() ;
+    }
+  },
+}
 </script>

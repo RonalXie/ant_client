@@ -1,34 +1,83 @@
 <template>
   <div class="home">
-      <div class="top_content">
-          <CarouselCard/>
-
-      </div>
-
-      <a-row :gutter="16">
-          <a-col :xs="24" :sm="12" :md="12" :lg="8" :xl="6" v-for="index in 16" :key="index">
-              <ArticleCard/>
-          </a-col>
+    <div>
+      <a-row :gutter="16" type="flex" justify="center">
+        <a-col :xs="22" :xl="4">
+          <a-affix :offset-top="80">
+            <div>
+              <categorie-card/>
+              <br>
+              <tag-cloud-card/>
+            </div>
+          </a-affix>
+        </a-col>
+        <a-col :xs="22" :xl="14">
+          <div class="card">
+            <span style="font-size: large">🔔 公告栏</span>
+          </div>
+          <br>
+          <top-content-card/>
+          <br>
+          <article-list-card></article-list-card>
+        </a-col>
+        <a-col :xs="22" :xl="6">
+            <div>
+            <user-card/>
+            <br>
+            <sort-list-card/>
+            <br>
+            <recent-card/>
+          </div>
+        </a-col>
       </a-row>
+    </div>
+
+
   </div>
 </template>
 
 <script>
 
-import ArticleCard from "@/components/home/ArticleCard.vue";
-import CarouselCard from "@/components/home/CarouselCard.vue";
+import {selectPage} from "@/api/article";
+import CategorieCard from "@/components/home/sider/left/CategorieCard.vue";
+import TopContentCard from "@/components/home/top/TopContentCard.vue";
+import RecentCard from "@/components/home/sider/right/RecentCard.vue";
+import SortListCard from "@/components/home/sider/right/SortListCard.vue";
+import ArticleListCard from "@/components/home/ArticleListCard.vue";
+import UserCard from "@/components/home/sider/right/UserCard.vue";
+import TagCloudCard from "@/components/home/sider/left/TagCloudCard.vue";
 
 export default {
   name: 'HomeView',
   components: {
-      CarouselCard,
-      ArticleCard
+    TagCloudCard,
+    UserCard,
+    ArticleListCard,
+    SortListCard,
+    RecentCard,
+    TopContentCard,
+    CategorieCard,
+  },
+  data() {
+    return {
+      article_page: [],
+
+    }
+  },
+  created() {
+    selectPage({
+      pageNum: 1,
+      pageSize: 10,
+    }).then(res => {
+      this.article_page = res.data.obj.pageData
+      console.log(this.article_page)
+    })
   }
 }
 </script>
 <style>
-.top_content {
-
-
+. top_content{
+  text-align: center;
 }
+
 </style>

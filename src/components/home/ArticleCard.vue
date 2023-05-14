@@ -1,26 +1,58 @@
 <template>
   <div>
-      <a-card hoverable style="margin: 12px 0">
-          <img
-                  slot="cover"
-                  alt="example"
-                  src="https://cdn.dribbble.com/userupload/6730422/file/original-83442b9b8942f5eb628361c564f2282e.jpg?compress=1&resize=400x300&vertical=top"
-          />
-          <a-card-meta title="Europe Street beat">
-              <template slot="description">
-                  www.instagram.com
-              </template>
-          </a-card-meta>
-      </a-card>
+      <div class="article_card card">
+
+        <a-row>
+          <a-col :span="6">
+            <img
+                class="article_cover"
+                :src="article.cover"
+            />
+
+          </a-col>
+          <a-col :span="18">
+            <div>
+              <div>
+                <h1>后端开发</h1>
+                <p>
+                  {{article.abs}}
+                </p>
+              </div>
+
+              <div style="">
+                <div>
+                  <a-tag v-for="(item,index) in article.tagDos" :key="index">{{item.name}}</a-tag>
+                </div>
+                <div>
+                  <span style="color: gray;font-size: 10px"><a-icon type="calendar" />&nbsp;2023-05-05</span>
+                </div>
+              </div>
+            </div>
+
+          </a-col>
+        </a-row>
+
+
+      </div>
   </div>
 </template>
 
 <script>
 export default {
-    name: "ArticleCard"
+    name: "ArticleCard",
+    props:{
+        article:{}
+    }
 }
 </script>
 
-<style scoped>
+<style>
+.article_card{
+
+}
+.article_cover:hover{
+    transform: scale(1.05);
+    transition: all 0.8s;
+}
 
 </style>
