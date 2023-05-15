@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "CategorieCard",
+  name: "CategoryCard",
   data(){
     return{
       data : [

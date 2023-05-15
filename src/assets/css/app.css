@@ -10,7 +10,9 @@
 *{
     font-family: nexzhu;
 }
+html,body{
 
+}
 hr {
     border-width: 1px;
     border-style: solid;
@@ -73,15 +75,19 @@ body {
     height: 46px;
     line-height: 46px
 }
-.card h2:before{
-    content: '';
-    display: inline-block;
-    width: 5px;
-    height: 20px;
-    background-color: #00d1b2;
-    border-radius: 20px;
-    box-sizing: border-box;
-    margin-right: 14px;
+/*.card h2:before{*/
+/*    content: '';*/
+/*    display: inline-block;*/
+/*    width: 5px;*/
+/*    height: 20px;*/
+/*    background-color: #00d1b2;*/
+/*    border-radius: 20px;*/
+/*    box-sizing: border-box;*/
+/*    margin-right: 14px;*/
+/*}*/
+
+.ant-layout{
+    height: 100%;
 }
 
 

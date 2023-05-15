@@ -62,7 +62,7 @@
 <script>
 
 export default {
-  name: "DefaultHeader",
+  name: "FrontHeader",
   components: {},
   data() {
     return {

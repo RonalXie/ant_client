@@ -5,7 +5,7 @@
         <a-col :xs="22" :xl="4">
           <a-affix :offset-top="80">
             <div>
-              <categorie-card/>
+              <category-card/>
               <br>
               <tag-cloud-card/>
             </div>
@@ -35,7 +35,7 @@
 <script>
 
 import {selectPage} from "@/api/article";
-import CategorieCard from "@/components/home/sider/left/CategorieCard.vue";
+import CategoryCard from "@/components/home/sider/left/CategoryCard.vue";
 import TopContentCard from "@/components/home/top/TopContentCard.vue";
 import RecentCard from "@/components/home/sider/right/RecentCard.vue";
 import SortListCard from "@/components/home/sider/right/SortListCard.vue";
@@ -54,7 +54,7 @@ export default {
     SortListCard,
     RecentCard,
     TopContentCard,
-    CategorieCard,
+    CategoryCard,
   },
   data() {
     return {

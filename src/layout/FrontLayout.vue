@@ -4,7 +4,7 @@
           <div class="header" >
             <a-row type="flex" justify="center">
               <a-col :xs="24" :sm="24" :md="22" :lg="20" :xl="20" :xxl="16">
-                <DefaultHeader/>
+                <FrontHeader/>
               </a-col>
             </a-row>
           </div>
@@ -21,10 +21,9 @@
 </template>
 
 <script>
-import DefaultHeader from "@/navbar/DefaultHeader.vue";
-
+import FrontHeader from "@/navbar/FrontHeader.vue";
 export default {
-    components: {DefaultHeader}
+    components: {FrontHeader}
 }
 </script>
 

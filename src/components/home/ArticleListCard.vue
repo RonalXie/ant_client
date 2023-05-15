@@ -1,20 +1,19 @@
 <template>
   <div class="card">
-    <h2>👍 为你推荐</h2>
+    <h2>为你推荐</h2>
     <div v-for="(item,index) in this.listData" :key="index">
       <a-skeleton :loading="loading" active>
-        <a-row type="flex" justify="space-between" align="middle">
-            <a-col :span="8" style="text-align: left">
+        <a-row type="flex" align="middle" :gutter="16">
+            <a-col :xs="8" :xxl="8" style="text-align: left">
                 <img
-                        width="210"
-                        height="140"
+                        width="100%"
                         alt="logo"
                         style="border-radius: 4px;object-fit: cover"
                         src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
                 />
             </a-col>
 
-          <a-col :span="16">
+          <a-col :xs="16" :xxl="16">
             <div style="height: 140px;display: flex;flex-direction: column;justify-content: space-between">
               <!--          标题-->
               <div>
@@ -67,7 +66,7 @@ const listData = [];
 for (let i = 0; i < 10; i++) {
   listData.push({
     href: 'https://www.antdv.com/',
-    title: `工ant design vue part ${i}`,
+    title: `ant design vue part ${i}`,
     avatar: 'https://cdn.dribbble.com/userupload/6730422/file/original-83442b9b8942f5eb628361c564f2282e.jpg?compress=1&resize=400x300&vertical=top',
     description:
         'Ant Design, a design language for background applications,',
