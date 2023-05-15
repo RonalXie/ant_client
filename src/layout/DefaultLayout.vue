@@ -6,6 +6,7 @@
               <a-row type="flex" justify="center">
                   <a-col :span="20">
                       <router-view/>
+                      <a-form-item label-width=""></a-form-item>
                   </a-col>
               </a-row>
           </a-layout-content>
@@ -23,6 +24,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>

@@ -2,8 +2,16 @@
   <div class="home">
       <div class="top_user">
           <a-row :gutter="16">
-              <a-col :span="18">
+              <a-col :span="10">
                   <CarouselCard/>
+              </a-col>
+              <a-col :span="8">
+                  <div style="height:100%;display:flex;align-content: space-between;">
+                      <a-card style="width: 100%;height: 100px">这是内容</a-card>
+                      <a-card style="width: 100%;height: 100px">这是内容</a-card>
+                      <a-card style="width: 100%;height: 100px">这是内容</a-card>
+                  </div>
+
               </a-col>
               <a-col :span="6">
                   <UserCard/>

@@ -1,16 +1,14 @@
-/*@font-face*/
-/*{*/
-/*    font-family: Poppins;*/
-/*    src: url("@/assets/fonts/Poppins/Poppins-Regular.ttf");*/
-/*    font-weight: 400;*/
-/*    font-style: normal;*/
-/*    -webkit-font-smoothing: antialiased;*/
-/*    -moz-osx-font-smoothing: grayscale;*/
-/*}*/
+@font-face
+{
+    font-family: nexzhu;
+    src: url("@/assets/fonts/blockdole.woff2");
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-/**{*/
-/*    font-family: Poppins;*/
-/*}*/
+*{
+    font-family: nexzhu;
+}
 
 hr {
     border-width: 1px;

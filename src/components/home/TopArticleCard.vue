@@ -22,8 +22,8 @@ export default {
 
 <style scoped>
 .mask_title{
-    background-color: gray;
-    opacity: 0.5;
+    background-color: black;
+    opacity: 0.3;
     height: 46px;
 }
 .bottom_title{
