@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     layout() {
-      return "layout-" + ( this.$route.meta.layout || "front" ).toLowerCase() ;
+      return "layout-" + ( this.$route.meta.layout || "empty" ).toLowerCase() ;
     }
   },
 }

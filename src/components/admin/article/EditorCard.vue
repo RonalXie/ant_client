@@ -1,14 +1,42 @@
 <template>
   <div>
     <div id="vditor"/>
+      <br>
+      <div style="padding: 0 24px 24px 24px;text-align: right">
+          <a-button type="primary" @click="handlePublish">
+              发布
+          </a-button>
+          &nbsp;
+          <a-button>
+              清空
+          </a-button>
+      </div>
   </div>
 </template>
 <script>
 import Vditor from "vditor";
 import 'vditor/dist/index.css'
+import handle from "ant-design-vue/lib/vc-slider/src/Handle";
 
 export default {
+    computed: {
+        handle() {
+            return handle
+        }
+    },
 
+  data(){
+      return{
+          contentEditor:{},
+          content:""
+      }
+
+  },
+    watch:{
+      "content":function (val, oldVal){
+          console.log(val,oldVal)
+      }
+    },
   mounted() {
     this.contentEditor = new Vditor('vditor', {
       height: 870,
@@ -34,10 +62,18 @@ export default {
       cache: {
         enable: false
       },
-      mode: 'sv'
+      mode: 'sv',
     })
-
-  }
+  },
+    methods:{
+      handlePublish() {
+          let editorValue={
+              content:this.contentEditor.getValue(),
+              drawerVisible:true,
+          }
+          this.$emit("handlePublish",editorValue)
+      }
+    }
 
 }
 

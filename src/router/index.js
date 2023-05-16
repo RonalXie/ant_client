@@ -16,7 +16,8 @@ let routes = [
     // will match everything
     path: '*',
     name:'notfound',
-    component: NotFoundView
+    component: NotFoundView,
+    layout: "empty"
   },
   {
     path: '/',
@@ -34,7 +35,7 @@ let routes = [
     path: '/login',
     name: 'login',
     component: LoginView,
-    layout:'login'
+    layout:'empty'
   },
   {
     path: '/dashboard',
@@ -67,7 +68,8 @@ let routes = [
   }
 ]
 
-function addLayoutToRoute( route, parentLayout = "front" )
+
+function addLayoutToRoute( route, parentLayout = "empty" )
 {
   route.meta = route.meta || {} ;
   route.meta.layout = route.layout || parentLayout ;
@@ -85,4 +87,8 @@ const router = new VueRouter({
   routes
 })
 
+// eslint-disable-next-line no-unused-vars
+router.afterEach((to,from,next)=> {
+  window.scroll(0, 0)
+})
 export default router

@@ -8,7 +8,7 @@
       <div style="float: left">
         <ul style="list-style: none" class="nav_menu">
           <li>
-            <router-link to=""><span><a-icon type="home"></a-icon>&nbsp;首页</span>
+            <router-link to="/"><span><a-icon type="home"></a-icon>&nbsp;首页</span>
             </router-link>
           </li>
           <li>

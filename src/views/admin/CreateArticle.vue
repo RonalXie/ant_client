@@ -1,20 +1,10 @@
 <template>
   <div class="edit-container">
     <div class="card" style="padding: 0">
-      <EditorCard @getEditor="doEditor"/>
-      <br>
-      <div style="padding: 0 24px 24px 24px;text-align: right">
-        <a-button type="primary" @click="showDrawer">
-          发布
-        </a-button>
-         &nbsp;
-        <a-button>
-          清空
-        </a-button>
-      </div>
+      <EditorCard @handlePublish="getEditorValue"/>
     </div>
     <a-drawer
-        title="Basic Drawer"
+        title="编辑文章信息"
         placement="right"
         :closable="false"
         :visible="visible"
@@ -22,23 +12,84 @@
         :after-visible-change="afterVisibleChange"
         @close="onClose"
     >
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
+        <a-form :form="form" @submit="handleSubmit">
+            <a-form-item
+                    label="标题"
+            >
+                <a-input  v-decorator="[
+          'name',
+          { rules: [{ required: true, message: 'Please input your username!' }] },
+        ]" placeholder="input placeholder" />
+            </a-form-item>
+
+            <a-form-item
+                    label="摘要"
+            >
+                <a-textarea   v-decorator="[
+          'abs',
+          { rules: [{ required: true, message: 'Please input your username!' }] },
+        ]" placeholder="Basic usage" :rows="4" :autoSize="{ minRows: 4, maxRows: 4 }" />
+            </a-form-item>
+            <a-form-item
+                    label="分类"
+            >
+                <a-select v-decorator="[
+          'categorySid',
+          { rules: [{ required: true, message: 'Please input your username!' }] },
+        ]" style="width: 100%">
+                    <a-select-option v-for="(item,index) in this.categoryData" :value="item.sid" :key="index">
+                        {{item.name}}
+                    </a-select-option>
+                </a-select>
+            </a-form-item>
+            <a-form-item
+                    label="标签"
+            >
+                <a-select v-decorator="[
+          'tagSids',
+          { rules: [{ required: true, message: 'Please input your username!' }] },
+        ]" style="width: 100%" @change="handleChange"  mode="multiple">
+                    <a-select-option v-for="(item,index) in this.tagData" :value="item.sid" :key="index">
+                        {{item.name}}
+                    </a-select-option>
+                </a-select>
+            </a-form-item>
+            <a-form-item
+                    label="置顶"
+            >
+                <a-switch v-decorator="[
+          'top',{valuePropName: 'checked'}]">
+          </a-switch>
+            </a-form-item>
+            <a-form-item
+                    label="封面图"
+            >
+                <UploadCover v-decorator="[
+          'cover',
+        ]"/>
+            </a-form-item>
+            <a-form-item>
+                <a-button type="primary" html-type="submit" class="login-form-button">
+                    发布
+                </a-button>
+            </a-form-item>
+        </a-form>
     </a-drawer>
 
   </div>
 </template>
 
 <script>
-
-
 import EditorCard from "@/components/admin/article/EditorCard.vue";
-
+import UploadCover from "@/components/admin/article/UploadCover.vue";
+import {getCategories} from "@/api/category";
+import {getTags} from "@/api/tag";
+import {insertArticle} from "@/api/article";
 export default {
   name: "CreateArticle",
   components: {
     EditorCard,
+      UploadCover
   },
   data() {
     return {
@@ -49,11 +100,18 @@ export default {
       tagBut:false,
       tagData:[],
       cover_url:"",
-      tag_value:[]
+      tag_value:[],
+      categoryData:{},
+        form:this.$form.createForm(this)
 
     }
   },
+    beforeCreate() {
+
+    },
   created() {
+      getCategories().then((res)=>{this.categoryData=res.data.record})
+      getTags().then((res)=>{this.tagData=res.data.record})
 
   },
   methods: {
@@ -69,7 +127,7 @@ export default {
     pushArticle(){
       const postData={
         name:this.title_value,
-        abs:this.abs_value,
+        // abs:this.abs_value,
         cover:this.cover_url,
         tags:this.tag_value,
         content:this.content,
@@ -88,14 +146,32 @@ export default {
         this.$message.warn("最多只能选择两个标签！", 3)
       }
     },
+      handleSubmit(e) {
+          e.preventDefault();
+          let formData=this.form.getFieldsValue()
+          formData['content']=this.content
+          formData['abs']=this.abs_value
+
+          console.log(formData,"表单")
+          this.form.validateFields((err, values) => {
+              if (!err) {
+                  console.log('Received values of form: ', values);
+              }
+          });
+          insertArticle(formData).then((res)=>{
+              console.log(res.data)
+          })
+      },
     handleOk() {
       this.tagBut=true
       // setTimeout(this.tagBut=false,3000)
 
     },
-    doEditor(editor) {
-      this.content=editor.getText()
-      this.abs_value = editor.getText().slice(0, 200);
+      getEditorValue(value) {
+        console.log(value)
+      this.content=value.content
+      this.abs_value = this.content.slice(0, 200);
+      this.visible=value.drawerVisible
     },
     getCoverUrl(imgUrl){
       console.log(imgUrl)

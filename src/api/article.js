@@ -15,3 +15,10 @@ export function selectPage(data){
         params:data
     })
 }
+
+export function selectArticleBySid(sid){
+    return request({
+        url:`/article/select/${sid}`,
+        method:"post"
+    })
+}

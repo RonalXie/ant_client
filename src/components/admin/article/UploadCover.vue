@@ -39,7 +39,7 @@ export default {
             }
             if (info.file.status === 'done') {
                 console.log(info.file.response)
-                this.$emit("getCover",info.file.response)
+                this.$emit("change",info.file.response)
                 // Get this url from response in real world.
                 getBase64(info.file.originFileObj, imageUrl => {
                     this.imageUrl = imageUrl;

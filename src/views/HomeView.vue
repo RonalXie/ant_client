@@ -34,7 +34,6 @@
 
 <script>
 
-import {selectPage} from "@/api/article";
 import CategoryCard from "@/components/home/sider/left/CategoryCard.vue";
 import TopContentCard from "@/components/home/top/TopContentCard.vue";
 import RecentCard from "@/components/home/sider/right/RecentCard.vue";
@@ -63,13 +62,7 @@ export default {
     }
   },
   created() {
-    selectPage({
-      pageNum: 1,
-      pageSize: 10,
-    }).then(res => {
-      this.article_page = res.data.obj.pageData
-      console.log(this.article_page)
-    })
+
   }
 }
 </script>
