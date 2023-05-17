@@ -10,6 +10,7 @@ import CreateArticle from "@/views/admin/CreateArticle.vue";
 import UserCenter from "@/views/admin/UserCenter.vue";
 import CategoryManage from "@/views/admin/CategoryManage.vue";
 import TagManage from "@/views/admin/TagManage.vue";
+import UpdateArticle from "@/views/admin/UpdateArticle.vue";
 
 Vue.use(VueRouter)
 
@@ -55,6 +56,12 @@ let routes = [
     path: '/article/create',
     name: 'createArticle',
     component: CreateArticle,
+    layout: 'admin'
+  },
+  {
+    path: '/article/update',
+    name: 'updateArticle',
+    component: UpdateArticle,
     layout: 'admin'
   },
   {

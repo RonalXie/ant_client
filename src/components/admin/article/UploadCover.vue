@@ -31,7 +31,13 @@ export default {
             imageUrl: '',
         };
     },
-    methods: {
+  props:[
+      "img"
+  ],
+  created() {
+    this.imageUrl=this.img===undefined?"":this.img;
+  },
+  methods: {
         handleChange(info) {
             if (info.file.status === 'uploading') {
                 this.loading = true;

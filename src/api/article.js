@@ -22,3 +22,18 @@ export function selectArticleBySid(sid){
         method:"post"
     })
 }
+
+export function deleteArticleBySid(sid){
+    return request({
+        url:`/article/delete/${sid}`,
+        method:'post'
+    })
+}
+
+export function  updateArticle(data){
+    return request({
+        url:'/article/update',
+        method:'post',
+        data:data
+    })
+}

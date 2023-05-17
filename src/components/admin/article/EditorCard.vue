@@ -24,6 +24,9 @@ export default {
             return handle
         }
     },
+  props:[
+      "text"
+  ],
 
   data(){
       return{
@@ -63,10 +66,14 @@ export default {
         enable: false
       },
       mode: 'sv',
+      after: () => {
+        this.contentEditor.setValue(this.text===undefined?'':this.text)
+      },
     })
   },
-    methods:{
+  methods:{
       handlePublish() {
+
           let editorValue={
               content:this.contentEditor.getValue(),
               drawerVisible:true,
