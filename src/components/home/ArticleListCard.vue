@@ -4,17 +4,17 @@
       <a-skeleton :loading="loading" active :paragraph="{ rows: 10 }">
     <div v-for="(item,index) in this.articlePage" :key="index" style="cursor: pointer">
         <a-row type="flex" align="middle" :gutter="16">
-            <a-col :xs="8" :xxl="8" style="text-align: left">
+            <a-col :xs="8" :xxl="7" style="text-align: left">
                 <img
                         width="100%"
-                        height="150"
+                        height="130"
                         alt="logo"
                         style="border-radius: 4px;object-fit: cover"
                         :src="item.cover"
                 />
             </a-col>
 
-          <a-col :xs="16" :xxl="16">
+          <a-col :xs="16" :xxl="17">
             <div style="height: 140px;display: flex;flex-direction: column;justify-content: space-between">
               <!--          标题-->
               <div>

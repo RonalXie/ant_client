@@ -1,9 +1,5 @@
 <template>
   <div>
-      <div class="card">
-          <span style="font-size: medium">🔔 公告栏</span>
-      </div>
-      <br>
     <a-row :gutter="16">
       <a-col :xs="24" :sm="14" :md="16" :lg="16" :xl="16">
         <carousel-card/>

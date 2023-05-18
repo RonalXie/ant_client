@@ -14,3 +14,11 @@ export function getTags(){
         method:"get"
     })
 }
+
+export function selectPage(pageParams){
+    return request({
+        url:"/tag/select",
+        method:"post",
+        params:pageParams,
+    })
+}

@@ -26,7 +26,12 @@
     <div style="text-align: right">
       <a-button type="primary" icon="plus" @click="$router.push('/article/create')">新建</a-button>
     </div>
-    <a-table :loading="visible" :columns="columns" :data-source="data" :scroll="{x:400,y:700}" :pagination="pageParam"
+    <a-table :loading="visible"
+             :rowKey="(record,index)=>{return record.sid}"
+             :columns="columns"
+             :data-source="data"
+             :scroll="{x:400,y:700}"
+             :pagination="pageParam"
              @change="handleChange">
       <a slot="name" slot-scope="name">{{ name }}</a>
       <!--            <p slot="abs" slot-scope="abs">{{ abs }}</p>-->

@@ -10,12 +10,12 @@
             </a-form-item>
         </a-form>
         <div style="text-align: right">
-            <a-button type="primary" icon="plus">新建</a-button>
+            <a-button type="primary" icon="plus" @click="showModal">新建</a-button>
         </div>
-        <a-table :columns="columns" :data-source="data" :scroll="{y:400}">
+        <a-table :columns="columns" :data-source="this.tagData" :rowKey="(record,index)=>{return record.sid}">
             <a slot="name" slot-scope="name">{{ name }}</a>
-            <span slot="articleCount" slot-scope="articleCount">
-                {{articleCount}}
+            <span slot="articleCount">
+                0
             </span>
             <span slot="createTime" slot-scope="createTime">
                 {{createTime}}
@@ -28,10 +28,15 @@
             </span>
 
         </a-table>
+      <a-modal v-model="visible" title="添加标签" @ok="handleOk" centered>
+        <a-input v-model="tagName"></a-input>
+      </a-modal>
     </div>
 
 </template>
 <script>
+import {insertTag, selectPage} from "@/api/tag";
+
 const columns = [
     {
         title: "标题",
@@ -58,36 +63,35 @@ const columns = [
     },
 ];
 
-const data = [
-    {
-        key: '1',
-        name: '后端开发',
-        articleCount: 32,
-        createTime: '2023-05-17'
-    },
-    {
-        key: '2',
-        name: '人工智能',
-        articleCount: 32,
-        createTime: '2023-05-17'
-    },
-    {
-        key: '3',
-        name: '前端开发',
-        articleCount: 32,
-        createTime: '2023-05-17'
-    },
-
-
-
-];
 
 export default {
-    data() {
-        return {
-            data,
-            columns,
-        };
+  data() {
+    return {
+      columns,
+      visible: false,
+      tagName:"",
+      tagData:[]
+
+    };
+  },
+  created() {
+    selectPage({
+      pageSize:10,
+      pageNum:1
+    }).then(res=>{
+      this.tagData=res.data.record.pageData
+    })
+  },
+  methods: {
+    showModal() {
+      this.visible = true;
     },
+    handleOk() {
+      insertTag({
+        name:this.tagName
+      })
+      this.visible = false;
+    },
+  },
 };
 </script>

@@ -8,11 +8,22 @@ export function insertArticle(data) {
         data:data
     })
 }
-export function selectPage(data){
+export function selectPage(pageParams){
     return request({
         url:"/article/select",
-        method:"get",
-        params:data
+        method:"post",
+        params:pageParams,
+    })
+}
+
+export function selectTop(pageParams){
+    return request({
+        url:"/article/select",
+        method:"post",
+        params:pageParams,
+        data:{
+            top:true
+        }
     })
 }
 
@@ -35,5 +46,12 @@ export function  updateArticle(data){
         url:'/article/update',
         method:'post',
         data:data
+    })
+}
+
+export function selectHot(){
+    return request({
+        url:'/article/hot',
+        method:"post"
     })
 }
