@@ -36,8 +36,8 @@ export default {
 
 .bg_user {
   background: #ffffff url("https://pandapro.halo.nicetheme.xyz/upload/img00051.jpg") no-repeat;
-  height: 380px;
-  background-size: 100% 55%;
+  height: 445px;
+  background-size: 100% 60%;
   border-radius: 4px;
   box-shadow: 2px 1px 12px 3px #eee;
   width: 100%;

@@ -1,30 +1,28 @@
 <template>
   <div>
     <a-skeleton :loading="loading" active>
-      <div v-for="(item,index) in this.articlePage" :key="index" style="cursor: pointer;margin-bottom: 16px"
-           class="card">
-        <a-row type="flex" align="middle" :gutter="16">
-          <a-col :xs="8" :xxl="7" style="text-align: left">
-            <img
-                width="100%"
-                height="160"
-                alt="logo"
-                style="border-radius: 4px;object-fit: cover"
-                :src="item.cover"
-            />
-          </a-col>
-
-          <a-col :xs="16" :xxl="17">
-            <div style="height: 100%;display: flex;flex-direction: column;justify-content: space-between">
+      <a-row type="flex" align="middle" :gutter="16">
+        <a-col :xs="24" :xxl="12"  v-for="(item,index) in this.articlePage" :key="index">
+          <div class="card" style="padding: 0">
+            <div>
+              <img
+                  width="100%"
+                  height="280"
+                  alt="logo"
+                  style="border-radius: 4px;object-fit: cover"
+                  :src="item.cover"
+              />
+            </div>
+            <div style="padding: 24px">
               <!--          标题-->
               <div>
                 <h1 @click="goArticlePage(item.sid)" style="cursor: pointer">{{ item.name }}</h1>
               </div>
               <!--          摘要-->
-              <div style="height: 80px;color: grey">
+              <div style="height: 60px;color: grey">
                 <p>{{ item.abs }}</p>
               </div>
-              <!--          底部内容-->
+<!--底部内容-->
               <div style="color: grey;font-size: small;justify-content: space-between;align-items: baseline"
                    class="vertical_center">
                 <div>
@@ -34,7 +32,7 @@
                 </div>
                 <div>
                     <span v-for="(tag,index) in item.tags" :key="index">
-                        ·{{ tag.name }}
+                        # {{ tag.name }}&nbsp;
                     </span>
                   <a-divider type="vertical"/>
 
@@ -49,12 +47,12 @@
                   </span>
                 </div>
               </div>
+
             </div>
-
-          </a-col>
-        </a-row>
-
-      </div>
+          </div>
+          <br>
+        </a-col>
+      </a-row>
     </a-skeleton>
 
 

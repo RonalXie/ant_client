@@ -35,7 +35,7 @@
         >
           <a-select v-decorator="[
           'categorySid',
-          { rules: [{ required: true, message: 'Please input your username!' }],initialValue:this.updateData.category.sid },
+          { rules: [{ required: true, message: 'Please input your username!' }],initialValue:this.updateData.category!==null?this.updateData.category.sid:null },
         ]" style="width: 100%">
             <a-select-option v-for="(item,index) in this.categoryData" :value="item.sid" :key="index">
               {{item.name}}
@@ -183,6 +183,7 @@ export default {
     },
     handleUpdate(){
       this.updateData=this.$route.params.data
+      console.log(this.updateData)
       for (let tag of this.updateData.tags) {
         this.updateTags.push(tag.sid)
       }

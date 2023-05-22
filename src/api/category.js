@@ -14,3 +14,11 @@ export function getCategories(){
         method:"get"
     })
 }
+
+export function selectPage(pageParams){
+    return request({
+        url:"/category/select",
+        method:"post",
+        params:pageParams,
+    })
+}

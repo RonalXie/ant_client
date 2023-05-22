@@ -12,7 +12,7 @@
         <div style="text-align: right">
             <a-button type="primary" icon="plus" @click="showModal">新建</a-button>
         </div>
-        <a-table :columns="columns" :data-source="data" :scroll="{y:400}">
+        <a-table :columns="columns" :data-source="categoryData" :scroll="{y:400}">
             <a slot="name" slot-scope="name">{{ name }}</a>
             <span slot="articleCount" slot-scope="articleCount">
                 {{articleCount}}
@@ -35,7 +35,8 @@
 
 </template>
 <script>
-import {insertCategory} from "@/api/category";
+import {insertCategory, selectPage} from "@/api/category";
+
 
 const columns = [
     {
@@ -63,39 +64,25 @@ const columns = [
     },
 ];
 
-const data = [
-    {
-        key: '1',
-        name: '后端开发',
-        articleCount: 32,
-        createTime: '2023-05-17'
-    },
-    {
-        key: '2',
-        name: '人工智能',
-        articleCount: 32,
-        createTime: '2023-05-17'
-    },
-    {
-        key: '3',
-        name: '前端开发',
-        articleCount: 32,
-        createTime: '2023-05-17'
-    }
-
-
-];
 
 export default {
     data() {
         return {
-            data,
+          categoryData:[],
             columns,
           visible: false,
           categoryName:''
 
         };
     },
+  created() {
+    selectPage({
+      pageSize:10,
+      pageNum:1
+    }).then(res=>{
+      this.categoryData=res.data.record.pageData
+    })
+  },
   methods: {
     showModal() {
       this.visible = true;

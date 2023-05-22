@@ -4,7 +4,7 @@
         <div v-for="(item,index) in this.topData" :key="index">
           <div style="position: relative;box-sizing: border-box;border-radius: 4px;overflow: hidden">
             <div>
-              <img height="300"
+              <img height="350"
                    width="100%"
                    :src="item.cover"
                    style="object-fit: cover" alt="">
