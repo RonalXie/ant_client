@@ -12,9 +12,9 @@
         <div style="font-size: large">
           <span>文章: 18</span>
           <a-divider type="vertical"></a-divider>
-          <span>粉丝: 18</span>
+          <span>分类: 18</span>
           <a-divider type="vertical"></a-divider>
-          <span>关注: 18</span>
+          <span>标签: 18</span>
         </div>
       </div>
 

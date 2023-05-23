@@ -48,7 +48,7 @@
                 <div>
                     <img height="85"
                          width="100%"
-                         src="https://pandapro.halo.nicetheme.xyz/upload/img00030.jpg"
+                         src="https://pandapro.halo.nicetheme.xyz/upload/img00049.jpg"
                          style="object-fit: cover" alt="">
                 </div>
                 <div class="fix_bottom mask_title" style="height: 100%;opacity: 0.3"/>
@@ -62,7 +62,7 @@
                 <div>
                     <img height="85"
                          width="100%"
-                         src="https://pandapro.halo.nicetheme.xyz/upload/img00030.jpg"
+                         src="https://pandapro.halo.nicetheme.xyz/upload/img00047.jpg"
                          style="object-fit: cover" alt="">
                 </div>
                 <div class="fix_bottom mask_title" style="height: 100%;opacity: 0.3"/>
@@ -76,7 +76,7 @@
           <div>
             <img height="85"
                  width="100%"
-                 src="https://pandapro.halo.nicetheme.xyz/upload/img00030.jpg"
+                 src="https://pandapro.halo.nicetheme.xyz/upload/img00048.jpg"
                  style="object-fit: cover" alt="">
           </div>
           <div class="fix_bottom mask_title" style="height: 100%;opacity: 0.3"/>

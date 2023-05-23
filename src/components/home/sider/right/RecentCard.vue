@@ -24,7 +24,7 @@
         <div v-for="(item,index) in this.dataList" :key="index">
           <div class="vertical_center">
             <div style="margin-right:16px">
-              <img :src="item.cover" alt="" style="border-radius: 4px" width="108" height="72">
+              <img :src="item.cover" alt="" style="border-radius: 4px;object-fit: cover" width="96" height="72">
             </div>
             <div>
               <div style="height: 50px">

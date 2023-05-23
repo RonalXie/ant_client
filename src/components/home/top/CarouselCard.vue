@@ -1,6 +1,6 @@
 <template>
 
-    <a-carousel :after-change="onChange" dot-position="right">
+    <a-carousel :after-change="onChange" dot-position="right" autoplay>
         <div v-for="(item,index) in this.topData" :key="index">
           <div style="position: relative;box-sizing: border-box;border-radius: 4px;overflow: hidden">
             <div>

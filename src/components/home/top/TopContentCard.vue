@@ -26,7 +26,7 @@
                 <div>
                   <img height="170"
                        width="100%"
-                       src="https://pandapro.halo.nicetheme.xyz/upload/img00046.jpg"
+                       src="https://pandapro.halo.nicetheme.xyz/upload/img00055.jpg"
                        style="object-fit: cover" alt="">
                 </div>
                 <div class="fix_bottom mask_title" style="height: 100%;opacity: 0.3"/>

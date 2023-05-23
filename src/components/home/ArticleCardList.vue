@@ -2,7 +2,7 @@
   <div>
     <a-skeleton :loading="loading" active>
       <a-row type="flex" align="middle" :gutter="16">
-        <a-col :xs="24" :xxl="12"  v-for="(item,index) in this.articlePage" :key="index">
+        <a-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12"  v-for="(item,index) in this.articlePage" :key="index">
           <div class="card" style="padding: 0">
             <div>
               <img
@@ -13,7 +13,7 @@
                   :src="item.cover"
               />
             </div>
-            <div style="padding: 24px">
+            <div style="padding: 16px">
               <!--          标题-->
               <div>
                 <h1 @click="goArticlePage(item.sid)" style="cursor: pointer">{{ item.name }}</h1>
@@ -53,6 +53,10 @@
           <br>
         </a-col>
       </a-row>
+      <div style="text-align:center;width: 100%">
+        <a-pagination v-model="current" :total="total" show-less-items @change="handlePageChange"/>
+
+      </div>
     </a-skeleton>
 
 
@@ -66,12 +70,8 @@ export default {
     return {
       loading: true,
       articlePage: [],
-      pagination: {
-        onChange: page => {
-          console.log(page);
-        },
-        pageSize: 10,
-      },
+      current:1,
+      total:0,
       actions: [
         {type: 'eye', text: '156'},
         {type: 'message', text: '2'},
@@ -86,6 +86,17 @@ export default {
           sid: articleSid
         }
       })
+    },
+    handlePageChange(page,pageSize){
+      this.loading=true
+      selectPage({
+        pageNum:page,
+        pageSize:pageSize
+      }).then(res=>{
+        this.articlePage = res.data.record.pageData
+        this.total=res.data.record.total
+        this.loading = false
+      })
     }
   },
   created() {
@@ -98,6 +109,7 @@ export default {
       pageSize: 10,
     }).then(res => {
       this.articlePage = res.data.record.pageData
+      this.total=res.data.record.total
       this.loading = false
     })
   }

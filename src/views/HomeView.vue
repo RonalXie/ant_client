@@ -14,7 +14,7 @@
 <!--          </a-affix>-->
 <!--        </a-col>-->
         <a-col :xs="22" :xl="17">
-          <div class="card"></div>
+          <category-tab/>
           <br>
           <article-card-list></article-card-list>
         </a-col>
@@ -38,10 +38,12 @@ import TopContentCard from "@/components/home/top/TopContentCard.vue";
 import RecentCard from "@/components/home/sider/right/RecentCard.vue";
 import SortListCard from "@/components/home/sider/right/SortListCard.vue";
 import ArticleCardList from "@/components/home/ArticleCardList.vue";
+import CategoryTab from "@/components/home/CategoryTab.vue";
 
 export default {
   name: 'HomeView',
   components: {
+    CategoryTab,
     ArticleCardList,
     SortListCard,
     RecentCard,
