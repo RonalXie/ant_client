@@ -7,8 +7,8 @@
             </a-menu-item>
             <a-sub-menu>
                 <span slot="title"><a-icon type="book"/><span>内容管理</span></span>
-                <a-menu-item key="/article/manage">
-                    文章列表
+                <a-menu-item key="/manage/article">
+                  文章管理
                 </a-menu-item>
                 <a-menu-item key="/category/manage">
                     分类管理

@@ -11,10 +11,12 @@
               <article-content-card/>
           </a-col>
           <a-col :span="6">
+
               <user-card/>
                   <br>
+            <a-affix :offset-top="80">
               <recent-card/>
-
+            </a-affix>
           </a-col>
       </a-row>
   </div>
@@ -28,7 +30,11 @@ import ArticleContentCard from "@/components/article/ArticleContentCard.vue";
 
 export default {
     name: "ArticleView",
-    components: {ArticleContentCard, LeftUtilCard, UserCard, RecentCard}
+    components: {ArticleContentCard, LeftUtilCard, UserCard, RecentCard},
+  created() {
+
+  }
+
 }
 </script>
 

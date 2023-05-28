@@ -10,7 +10,7 @@
           <a-col :xs="24" :sm="10" :md="8" :lg="8" :xl="8">
             <div style="display: flex;flex-direction: column;justify-content: space-between;height: 350px">
 
-              <div style="position: relative;box-sizing: border-box;border-radius: 4px;overflow: hidden">
+              <div style="position: relative;box-sizing: border-box;border-radius: 8px;overflow: hidden">
                 <div>
                   <img height="170"
                        width="100%"
@@ -22,7 +22,7 @@
                   <span style="color: #fff;font-size: large">后端开发</span>
                 </div>
               </div>
-              <div style="position: relative;box-sizing: border-box;border-radius: 4px;overflow: hidden">
+              <div style="position: relative;box-sizing: border-box;border-radius: 8px;overflow: hidden">
                 <div>
                   <img height="170"
                        width="100%"

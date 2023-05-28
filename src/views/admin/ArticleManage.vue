@@ -36,7 +36,7 @@
       <a slot="name" slot-scope="name">{{ name }}</a>
       <!--            <p slot="abs" slot-scope="abs">{{ abs }}</p>-->
       <span slot="cover" slot-scope="cover">
-                <img :src="cover" width="80" height="80"/>
+                <img :src="cover" width="140" height="80" style="object-fit: cover"/>
         </span>
       <span slot="tags" slot-scope="tags">
               <a-tag
@@ -73,6 +73,15 @@ import {deleteArticleBySid, selectPage} from "@/api/article";
 
 const columns = [
   {
+    title: '封面',
+    key: "cover",
+    dataIndex: 'cover',
+    scopedSlots: {customRender: 'cover'},
+    align: 'center',
+    width: 160
+
+  },
+  {
     title: "标题",
     dataIndex: 'name',
     key: "name",
@@ -102,14 +111,7 @@ const columns = [
     width: 100
 
   },
-  {
-    title: '封面',
-    key: "cover",
-    dataIndex: 'cover',
-    scopedSlots: {customRender: 'cover'},
-    align: 'center',
 
-  },
   {
     title: '标签',
     key: "tags",
@@ -152,7 +154,7 @@ const columns = [
     title: '操作',
     scopedSlots: {customRender: 'action'},
     align: 'center',
-    fixed: "right"
+    width: 200
 
   },
 ];

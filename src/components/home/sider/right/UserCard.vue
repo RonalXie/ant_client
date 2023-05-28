@@ -3,7 +3,7 @@
     <div class="bg_user">
       <div style="position: absolute;bottom: 14px;left: 0;right:0;margin:auto;text-align: center;
             ">
-        <a-avatar :size="96" style="overflow: hidden;" class="user"
+        <a-avatar :size="108" style="overflow: hidden;" class="user"
                   src="https://cdn.dribbble.com/userupload/6730422/file/original-83442b9b8942f5eb628361c564f2282e.jpg?compress=1&resize=400x300&vertical=top"></a-avatar>
         <div style="font-size: 24px">
           RonalXie
@@ -35,10 +35,10 @@ export default {
 }
 
 .bg_user {
-  background: #ffffff url("https://pandapro.halo.nicetheme.xyz/upload/img00051.jpg") no-repeat;
+  background: #ffffff url("@/assets/cool-background.png") no-repeat;
   height: 445px;
   background-size: 100% 60%;
-  border-radius: 4px;
+  border-radius: 8px;
   box-shadow: 2px 1px 12px 3px #eee;
   width: 100%;
   position: relative

@@ -2,7 +2,7 @@
   <div>
     <a-row :gutter="16">
       <a-col :span="4">
-          <div style="position: relative;box-sizing: border-box;border-radius: 4px;overflow: hidden">
+          <div style="position: relative;box-sizing: border-box;border-radius: 8px;overflow: hidden">
               <div>
                   <img height="85"
                        width="100%"
@@ -16,7 +16,7 @@
           </div>
       </a-col>
         <a-col :span="4">
-            <div style="position: relative;box-sizing: border-box;border-radius: 4px;overflow: hidden">
+            <div style="position: relative;box-sizing: border-box;border-radius: 8px;overflow: hidden">
                 <div>
                     <img height="85"
                          width="100%"
@@ -30,7 +30,7 @@
             </div>
         </a-col>
         <a-col :span="4">
-            <div style="position: relative;box-sizing: border-box;border-radius: 4px;overflow: hidden">
+            <div style="position: relative;box-sizing: border-box;border-radius: 8px;overflow: hidden">
                 <div>
                     <img height="85"
                          width="100%"
@@ -44,7 +44,7 @@
             </div>
         </a-col>
         <a-col :span="4">
-            <div style="position: relative;box-sizing: border-box;border-radius: 4px;overflow: hidden">
+            <div style="position: relative;box-sizing: border-box;border-radius: 8px;overflow: hidden">
                 <div>
                     <img height="85"
                          width="100%"
@@ -58,21 +58,23 @@
             </div>
         </a-col>
         <a-col :span="4">
-            <div style="position: relative;box-sizing: border-box;border-radius: 4px;overflow: hidden">
-                <div>
-                    <img height="85"
-                         width="100%"
-                         src="https://pandapro.halo.nicetheme.xyz/upload/img00047.jpg"
-                         style="object-fit: cover" alt="">
-                </div>
-                <div class="fix_bottom mask_title" style="height: 100%;opacity: 0.3"/>
-                <div class="fix_bottom bottom_title" style="height: 100%;display: flex;align-items: center;justify-content: center">
-                    <span style="color: #fff;font-size: large">后端开发</span>
-                </div>
+          <router-link to="">
+            <div style="position: relative;box-sizing: border-box;border-radius:8px;overflow: hidden">
+              <div>
+                <img height="85"
+                     width="100%"
+                     src="https://pandapro.halo.nicetheme.xyz/upload/img00047.jpg"
+                     style="object-fit: cover" alt="">
+              </div>
+              <div class="fix_bottom mask_title" style="height: 100%;opacity: 0.3"/>
+              <div class="fix_bottom bottom_title" style="height: 100%;display: flex;align-items: center;justify-content: center">
+                <span style="color: #fff;font-size: large">后端开发</span>
+              </div>
             </div>
+          </router-link>
         </a-col>
       <a-col :span="4">
-        <div style="position: relative;box-sizing: border-box;border-radius: 4px;overflow: hidden">
+        <div style="position: relative;box-sizing: border-box;border-radius: 8px;overflow: hidden">
           <div>
             <img height="85"
                  width="100%"
@@ -81,7 +83,7 @@
           </div>
           <div class="fix_bottom mask_title" style="height: 100%;opacity: 0.3"/>
           <div class="fix_bottom bottom_title" style="height: 100%;display: flex;align-items: center;justify-content: center">
-            <span style="color: #fff;font-size: large">后端开发</span>
+            <span style="color: #fff;font-size: large">人工智能</span>
           </div>
         </div>
       </a-col>

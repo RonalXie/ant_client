@@ -7,7 +7,7 @@
             </div>
             <div style="padding: 24px">
                 <div>
-                    <h1>{{ articleData.name }}</h1>
+                    <h1 style="font-weight: bold">{{ articleData.name }}</h1>
                 </div>
                 <div style="color: grey;font-size: small;justify-content: space-between;align-items: baseline"
                      class="vertical_center">

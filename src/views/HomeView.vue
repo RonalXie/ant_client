@@ -20,8 +20,6 @@
         </a-col>
         <a-col :xs="22" :xl="7">
             <div>
-            <recent-card/>
-            <br>
             <sort-list-card/>
           </div>
         </a-col>
@@ -35,7 +33,6 @@
 <script>
 
 import TopContentCard from "@/components/home/top/TopContentCard.vue";
-import RecentCard from "@/components/home/sider/right/RecentCard.vue";
 import SortListCard from "@/components/home/sider/right/SortListCard.vue";
 import ArticleCardList from "@/components/home/ArticleCardList.vue";
 import CategoryTab from "@/components/home/CategoryTab.vue";
@@ -46,7 +43,6 @@ export default {
     CategoryTab,
     ArticleCardList,
     SortListCard,
-    RecentCard,
     TopContentCard,
   },
   data() {

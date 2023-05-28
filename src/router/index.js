@@ -29,7 +29,7 @@ let routes = [
     layout:'front'
   },
   {
-    path: '/article',
+    path: '/article/:sid',
     name:'article',
     component: ArticleView,
     layout: 'front'
@@ -47,7 +47,7 @@ let routes = [
     layout:'admin'
   },
   {
-    path: '/article/manage',
+    path: '/manage/article',
     name: 'articleManage',
     component: ArticleManage,
     layout: 'admin'
