@@ -12,7 +12,7 @@
               </div>
               <div class="fix_bottom mask_title"/>
               <div class="fix_bottom bottom_title">
-                <h1 style="margin-left: 14px;color: #fff">{{item.name}}</h1>
+                <h1 style="margin-left: 14px;color: #fff">{{item.title}}</h1>
               </div>
             </div>
 
@@ -32,17 +32,15 @@ export default {
     }
   },
     methods: {
+      // eslint-disable-next-line no-unused-vars
         onChange(a, b, c) {
-            console.log(a, b, c);
+
 
         },
     },
   created() {
-      selectTop({
-        pageSize:10,
-        pageNum:1,
-      }).then((res)=>{
-        this.topData=res.data.record.pageData
+      selectTop().then((res)=>{
+        this.topData=res.data.record
       })
   }
 };

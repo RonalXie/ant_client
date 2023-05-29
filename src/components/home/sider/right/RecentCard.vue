@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <h2>热门文章</h2>
+    <h2>最近更新</h2>
     <!--    <a-list item-layout="horizontal" :data-source="data">-->
     <!--      <a-list-item slot="renderItem" slot-scope="item">-->
     <!--        <a-list-item-meta-->
@@ -28,7 +28,7 @@
             </div>
             <div>
               <div style="height: 50px">
-                <h4>{{ item.name }}</h4>
+                <h4>{{ item.title }}</h4>
               </div>
               <span style="font-size: small"><a-icon type="calendar"></a-icon> 2023-05-13</span>
             </div>
@@ -41,50 +41,16 @@
 </template>
 
 <script>
-import {selectHot} from "@/api/article";
+import { selectRecent} from "@/api/article";
 
-const data = [
-  {
-    title: 'Ant Design Title 1',
-  },
-  {
-    title: 'Ant Design Title 2',
-  },
-  {
-    title: 'Ant Design Title 3',
-  },
-  {
-    title: 'Ant Design Title 4',
-  },
-  {
-    title: 'Ant Design Title 4',
-  },
-  {
-    title: 'Ant Design Title Ant Design Title 4',
-  },
-  {
-    title: 'Ant Design Title 4',
-  },
-  {
-    title: 'Ant Design Title 4',
-  },
-  {
-    title: 'Ant Design Title 4',
-  },
-  {
-    title: 'Ant Design Title 4',
-  },
-
-];
 export default {
   data() {
     return {
-      data,
       dataList:[]
     };
   },
   created() {
-    selectHot().then((res)=>{
+    selectRecent().then((res)=>{
       this.dataList=res.data.record
     })
   }

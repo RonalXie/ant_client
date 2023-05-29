@@ -7,7 +7,7 @@
             </div>
             <div style="padding: 24px">
                 <div>
-                    <h1 style="font-weight: bold">{{ articleData.name }}</h1>
+                    <h1 style="font-weight: bold">{{ articleData.title }}</h1>
                 </div>
                 <div style="color: grey;font-size: small;justify-content: space-between;align-items: baseline"
                      class="vertical_center">
@@ -61,7 +61,7 @@
 <script>
 import Vditor from "vditor";
 import 'vditor/dist/index.css'
-import {selectArticleBySid} from "@/api/article";
+import {selectArticleById} from "@/api/article";
 
 
 export default {
@@ -78,12 +78,11 @@ export default {
     mounted() {
     },
     created() {
-        let sid = this.$route.params.sid;
-        console.log(sid)
-        if (sid===null||sid===undefined){
+        let id = this.$route.params.id;
+        if (id===null||id===undefined){
             this.$router.push("/404")
         }
-        selectArticleBySid(sid).then((res => {
+      selectArticleById(id).then((res => {
             this.articleData = res.data.record
             this.renderMarkdown(this.articleData.content)
         }))

@@ -28,9 +28,9 @@
             </div>
             <div>
               <div style="height: 50px">
-                <h4>{{ item.name }}</h4>
+                <h4>{{ item.title }}</h4>
               </div>
-              <span style="font-size: small"><a-icon type="calendar"></a-icon> 2023-05-13</span>
+              <span style="font-size: small"><a-icon type="calendar"></a-icon> {{item.createTime}}</span>
             </div>
           </div>
           <hr>

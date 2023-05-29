@@ -10,27 +10,29 @@ export function insertArticle(data) {
 }
 export function selectPage(pageParams){
     return request({
-        url:"/article/select",
+        url:"/article/searchPageInfo",
         method:"post",
         params:pageParams,
     })
 }
 
-export function selectTop(pageParams){
+export function selectTop(){
     return request({
-        url:"/article/select",
+        url:"/article/searchBase",
         method:"post",
-        params:pageParams,
         data:{
             top:true
         }
     })
 }
 
-export function selectArticleBySid(sid){
+export function selectArticleById(id){
     return request({
-        url:`/article/select/${sid}`,
-        method:"post"
+        url:`/article/searchArticleInfo`,
+        method:"post",
+        data:{
+            id:id
+        }
     })
 }
 
@@ -51,7 +53,21 @@ export function  updateArticle(data){
 
 export function selectHot(){
     return request({
-        url:'/article/hot',
-        method:"post"
+        url:'/article/searchBase',
+        method:"post",
+        params:{
+            sort:'views'+' '+'desc'
+        }
     })
 }
+
+export function selectRecent(){
+    return request({
+        url:'/article/searchBase',
+        method:"post",
+        params:{
+            sort:'create_time'+' '+'desc'
+        }
+    })
+}
+

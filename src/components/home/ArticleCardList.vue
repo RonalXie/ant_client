@@ -6,7 +6,7 @@
           <div class="card" style="padding: 0;position: relative">
             <div
                 class="category-content">
-              后端开发
+              {{item.category.name}}
             </div>
             <!--            <div style="z-index:999;height: 25px;text-align:center;line-height:25px;border-radius: 25px;opacity: 0.3;color:#ffffff;width:100px;background-color: rgb(0 0 0 / 40%);position: absolute; top: 0.375rem;left: 0.375rem">-->
 
@@ -41,7 +41,7 @@
               </div>
               <!--          标题-->
               <div>
-                <router-link :to="{path: '/article/'+item.sid}"  target="_blank"><h2 style="">{{ item.name }}</h2></router-link>
+                <router-link :to="{path: '/article/'+item.id}"  target="_blank"><h2 style="">{{ item.title }}</h2></router-link>
               </div>
               <!--          摘要-->
               <!--              <div style="height: 55px;color: grey">-->
@@ -77,7 +77,7 @@
         </a-col>
       </a-row>
       <div style="text-align:center;width: 100%">
-        <a-pagination v-model="current" :total="total" show-less-items @change="handlePageChange"/>
+        <a-pagination v-model="current" :total="total" :defaultPageSize="9" show-less-items @change="handlePageChange"/>
 
       </div>
     </a-skeleton>
@@ -116,7 +116,7 @@ export default {
         pageNum: page,
         pageSize: pageSize
       }).then(res => {
-        this.articlePage = res.data.record.pageData
+        this.articlePage = res.data.record.dataList
         this.total = res.data.record.total
         this.loading = false
       })
@@ -129,11 +129,12 @@ export default {
     //
     selectPage({
       pageNum: 1,
-      pageSize: 10,
+      pageSize: 9,
     }).then(res => {
-      this.articlePage = res.data.record.pageData
+      this.articlePage = res.data.record.dataList
       this.total = res.data.record.total
       this.loading = false
+      console.log(this.articlePage[0].tags)
     })
   }
 };

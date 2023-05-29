@@ -29,7 +29,7 @@ let routes = [
     layout:'front'
   },
   {
-    path: '/article/:sid',
+    path: '/article/:id',
     name:'article',
     component: ArticleView,
     layout: 'front'
