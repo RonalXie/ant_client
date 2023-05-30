@@ -26,6 +26,7 @@
     <div style="text-align: right">
       <a-button type="primary" icon="plus" @click="$router.push('/article/create')">新建</a-button>
     </div>
+    <br>
     <a-table :loading="visible"
              :rowKey="(record,index)=>{return record.sid}"
              :columns="columns"
@@ -33,7 +34,7 @@
              :scroll="{x:400,y:700}"
              :pagination="pageParam"
              @change="handleChange">
-      <a slot="name" slot-scope="name">{{ name }}</a>
+      <a slot="name" slot-scope="title">{{ title }}</a>
       <!--            <p slot="abs" slot-scope="abs">{{ abs }}</p>-->
       <span slot="cover" slot-scope="cover">
                 <img :src="cover" width="140" height="80" style="object-fit: cover"/>
@@ -69,7 +70,7 @@
 
 </template>
 <script>
-import {deleteArticleBySid, selectPage} from "@/api/article";
+import {deleteArticleBySid, selectArticleById, selectPage} from "@/api/article";
 
 const columns = [
   {
@@ -83,8 +84,8 @@ const columns = [
   },
   {
     title: "标题",
-    dataIndex: 'name',
-    key: "name",
+    dataIndex: 'title',
+    key: "title",
     scopedSlots: {customRender: 'name'},
     ellipsis: true,
     align: 'center',
@@ -92,16 +93,16 @@ const columns = [
 
 
   },
-  {
-    title: '摘要',
-    dataIndex: 'abs',
-    key: 'abs',
-    scopedSlots: {customRender: 'abs'},
-    ellipsis: true,
-    align: 'center',
-    width: 340
-
-  },
+  // {
+  //   title: '摘要',
+  //   dataIndex: 'abs',
+  //   key: 'abs',
+  //   scopedSlots: {customRender: 'abs'},
+  //   ellipsis: true,
+  //   align: 'center',
+  //   width: 340
+  //
+  // },
   {
     title: '分类',
     key: "category",
@@ -181,7 +182,7 @@ export default {
         pageSize: 10,
         pageNum: 1
       }).then((res) => {
-        this.data = res.data.record.pageData
+        this.data = res.data.record.dataList
         this.pageParam.total = res.data.record.total
         this.visible = false;
       })
@@ -194,7 +195,7 @@ export default {
         pageNum: pagination.current
       }).then((res) => {
         // this.pageParam.total=res.data.record.total
-        this.data = res.data.record.pageData
+        this.data = res.data.record.dataList
         this.visible = false;
       })
 
@@ -207,11 +208,14 @@ export default {
       })
     },
     handleUpdate(record){
-      this.$router.push({
-        name:"updateArticle",
-        params:{
-          data:record
-        }
+      selectArticleById(record.id).then(res=>{
+        this.updateData=res.data.record
+        this.$router.push({
+          name:"updateArticle",
+          params:{
+            data:res.data.record
+          }
+        })
       })
     }
   }

@@ -80,7 +80,7 @@ export default {
       pageSize:10,
       pageNum:1
     }).then(res=>{
-      this.categoryData=res.data.record.pageData
+      this.categoryData=res.data.record.dataList
     })
   },
   methods: {

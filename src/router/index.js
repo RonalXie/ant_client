@@ -59,7 +59,7 @@ let routes = [
     layout: 'admin'
   },
   {
-    path: '/article/update',
+    path: '/update/article',
     name: 'updateArticle',
     component: UpdateArticle,
     layout: 'admin'

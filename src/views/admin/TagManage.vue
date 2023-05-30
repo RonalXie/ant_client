@@ -12,7 +12,10 @@
         <div style="text-align: right">
             <a-button type="primary" icon="plus" @click="showModal">新建</a-button>
         </div>
-        <a-table :columns="columns" :data-source="this.tagData" :rowKey="(record,index)=>{return record.sid}">
+        <a-table :columns="columns" :data-source="this.tagData" :rowKey="(record,index)=>{return record.sid}"
+                 :pagination="pageParam"
+                  @change="handleChange"
+        >
             <a slot="name" slot-scope="name">{{ name }}</a>
             <span slot="articleCount">
                 0
@@ -70,7 +73,12 @@ export default {
       columns,
       visible: false,
       tagName:"",
-      tagData:[]
+      tagData:[],
+      pageParam: {
+        pageSize: 10,
+        total: 0
+      },
+      searchParams:{}
 
     };
   },
@@ -79,7 +87,8 @@ export default {
       pageSize:10,
       pageNum:1
     }).then(res=>{
-      this.tagData=res.data.record.pageData
+      this.tagData=res.data.record.dataList
+      this.pageParam.total = res.data.record.total
     })
   },
   methods: {
@@ -92,6 +101,29 @@ export default {
       })
       this.visible = false;
     },
+    // eslint-disable-next-line no-unused-vars
+    handleChange(pagination, filters, sorter) {
+      selectPage({
+        pageSize: pagination.pageSize,
+        pageNum: pagination.current
+      }).then((res) => {
+        // this.pageParam.total=res.data.record.total
+        this.tagData = res.data.record.dataList
+      })
+
+    },
+    handleSearch(){
+      this.searchParams={
+        name:"java"
+      }
+      selectPage({
+        pageSize: this.pageParam.pageSize,
+        pageNum: 1
+      }).then((res) => {
+        // this.pageParam.total=res.data.record.total
+        this.tagData = res.data.record.dataList
+      })
+    }
   },
 };
 </script>

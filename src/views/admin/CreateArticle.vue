@@ -34,10 +34,10 @@
                     label="分类"
             >
                 <a-select v-decorator="[
-          'categorySid',
+          'categoryId',
           { rules: [{ required: true, message: 'Please input your username!' }] },
         ]" style="width: 100%">
-                    <a-select-option v-for="(item,index) in this.categoryData" :value="item.sid" :key="index">
+                    <a-select-option v-for="(item,index) in this.categoryData" :value="item.id" :key="index">
                         {{item.name}}
                     </a-select-option>
                 </a-select>
@@ -46,10 +46,10 @@
                     label="标签"
             >
                 <a-select v-decorator="[
-          'tagSids',
+          'tagIds',
           { rules: [{ required: true, message: 'Please input your username!' }] },
         ]" style="width: 100%" @change="handleChange"  mode="multiple">
-                    <a-select-option v-for="(item,index) in this.tagData" :value="item.sid" :key="index">
+                    <a-select-option v-for="(item,index) in this.tagData" :value="item.id" :key="index">
                         {{item.name}}
                     </a-select-option>
                 </a-select>

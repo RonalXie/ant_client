@@ -10,14 +10,14 @@ export function insertTag(tag){
 
 export function getTags(){
     return request({
-        url:"/tag/list",
-        method:"get"
+        url:"/tag/searchList",
+        method:"post"
     })
 }
 
 export function selectPage(pageParams){
     return request({
-        url:"/tag/select",
+        url:"/tag/searchPage",
         method:"post",
         params:pageParams,
     })

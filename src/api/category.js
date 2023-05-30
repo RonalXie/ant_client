@@ -10,14 +10,14 @@ export function insertCategory(category){
 
 export function getCategories(){
     return request({
-        url:"/category/list",
-        method:"get"
+        url:"/category/searchList",
+        method:"post"
     })
 }
 
 export function selectPage(pageParams){
     return request({
-        url:"/category/select",
+        url:"/category/searchPage",
         method:"post",
         params:pageParams,
     })

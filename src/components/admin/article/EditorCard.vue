@@ -67,6 +67,7 @@ export default {
       },
       mode: 'sv',
       after: () => {
+        console.log(this.text,"text")
         this.contentEditor.setValue(this.text===undefined?'':this.text)
       },
     })
